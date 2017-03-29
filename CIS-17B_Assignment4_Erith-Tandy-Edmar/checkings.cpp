@@ -3,6 +3,7 @@
 Checkings::Checkings()
 {
     overdraftFee = 35;
+    setAmount(1000);
 }
 
 // <Tandy> defining copy contructor for user.cpp line 9 to fix "attempting to reference a deleted function"

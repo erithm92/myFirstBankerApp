@@ -7,10 +7,26 @@
 CheckingsWindow::CheckingsWindow(QWidget *parent) : QWidget(parent)
 {
 //    accountNumView = new QTextEdit(Savings.getAccountNumber());
-    accountNumView = new QTextEdit("account#: 123");
-    amountNumView = new QTextEdit("amount: $123");
-    overdraftView = new QTextEdit("overdraft fee: 12.3%");
-    showUser = new QTextEdit("user: Name");
+}
+void CheckingsWindow::setUser(User& user)
+{
+    myUser = &user;
+}
+void CheckingsWindow::buildWindow()
+{
+    QString accountNumQString = QString::number(myUser->getCheckingsAcc());
+    QString accString = "account # : " + accountNumQString;
+    accountNumView = new QTextEdit(accString);
+
+    QString amountNumQString = QString::number(myUser->getCheckingsAmount());
+    QString amString = "amount : $" + amountNumQString;
+    amountNumView = new QTextEdit(amString);
+
+    QString overdraftNumQString = QString::number(myUser->getCheckingsOverdraft());
+    QString overString = "overdraft fee: $" + overdraftNumQString;
+    overdraftView = new QTextEdit(overString);
+
+    showUser = new QTextEdit(myUser->getName());
 
     accountNumView->setReadOnly(true);
     amountNumView->setReadOnly(true);
@@ -37,18 +53,16 @@ CheckingsWindow::CheckingsWindow(QWidget *parent) : QWidget(parent)
     showUserSize.setHeight(25);
     showUser->setMaximumSize(showUserSize);
 
-    QHBoxLayout *textlayout = new QHBoxLayout;
-    textlayout->addWidget(accountNumView);
-    textlayout->addWidget(amountNumView);
-    textlayout->addWidget(overdraftView);
-    textlayout->addWidget(showUser);
+    QHBoxLayout *textlayout1 = new QHBoxLayout;
+    textlayout1->addWidget(accountNumView);
+    textlayout1->addWidget(showUser);
+     QHBoxLayout *textlayout2 = new QHBoxLayout;
+    textlayout2->addWidget(amountNumView);
+    textlayout2->addWidget(overdraftView);
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
-    mainLayout->addLayout(textlayout);
+    mainLayout->addLayout(textlayout1);
+    mainLayout->addLayout(textlayout2);
     setLayout(mainLayout);
-}
-void CheckingsWindow::setUser(User& user)
-{
-    myUser = &user;
 }
 
