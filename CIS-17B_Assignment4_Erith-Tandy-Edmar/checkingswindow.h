@@ -13,6 +13,7 @@ public:
     explicit CheckingsWindow(QWidget *parent = 0);
     User *myUser = NULL;
     void setUser(User&);
+    void buildWindow();
 private:
     QTextEdit *accountNumView;
     QTextEdit *amountNumView;

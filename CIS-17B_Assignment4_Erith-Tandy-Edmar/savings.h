@@ -10,14 +10,13 @@ class Savings : public Account
 // friend class User; // <Tandy> edit to comply with C2248
 public:
     Savings();
-//    Savings(Savings &obj); // <Tandy> declaring copy contructor for user.cpp line 10 to fix "attempting to reference a deleted function"
     double getInterest();
     void setInterest(double);
-    double annualInterest; // <Tandy> edit to comply with C2248
-private:
-//    double annualInterest;
-   // SavingsWindow myWindow;
 //    Savings(Savings &obj); // <Tandy> declaring copy contructor for user.cpp line 10 to fix "attempting to reference a deleted function"
+     // <Tandy> edit to comply with C2248
+private:
+
+    double annualInterest;
 };
 
 #endif // SAVINGS_H

@@ -14,14 +14,19 @@ void SavingsWindow::setUser(User& user)
 }
 void SavingsWindow::buildWindow()
 {
-    accountNumView = new QTextEdit("account#: "/* + savingsAcc*/);
-    amountNumView = new QTextEdit("amount: "/* + savingsAm*/);
-    double interest = myUser->getSavingsInterest();
-    QString interestQString = QString::number(interest);
-    QString intString = "interest: " + interestQString;
+    QString accountNumQString = QString::number(myUser->getSavingsAcc());
+    QString accString = "account # : " + accountNumQString;
+    accountNumView = new QTextEdit(accString);
 
+    QString amountNumQString = QString::number(myUser->getSavingsAmount());
+    QString amString = "account # : " + amountNumQString;
+    amountNumView = new QTextEdit(amString);
+
+    QString interestQString = QString::number(myUser->getSavingsInterest());
+    QString intString = "interest: " + interestQString;
     interestView = new QTextEdit(intString);
-    showUser = new QTextEdit("user: " /* + myUser->getName()*/);
+
+    showUser = new QTextEdit(myUser->getName());
 
     accountNumView->setReadOnly(true);
     amountNumView->setReadOnly(true);
@@ -48,13 +53,16 @@ void SavingsWindow::buildWindow()
     showUserSize.setHeight(25);
     showUser->setMaximumSize(showUserSize);
 
-    QHBoxLayout *textlayout = new QHBoxLayout;
-    textlayout->addWidget(accountNumView);
-    textlayout->addWidget(amountNumView);
-    textlayout->addWidget(interestView);
-    textlayout->addWidget(showUser);
+    QHBoxLayout *textlayout1 = new QHBoxLayout;
+    textlayout1->addWidget(showUser);
+    textlayout1->addWidget(accountNumView);
+    QHBoxLayout *textlayout2 = new QHBoxLayout;
+    textlayout2->addWidget(amountNumView);
+    textlayout2->addWidget(interestView);
+
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
-    mainLayout->addLayout(textlayout);
+    mainLayout->addLayout(textlayout1);
+    mainLayout->addLayout(textlayout2);
     setLayout(mainLayout);
 }

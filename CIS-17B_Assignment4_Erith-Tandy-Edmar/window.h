@@ -17,6 +17,7 @@ public:
     explicit Window(QWidget *parent = 0);
     void setCheckWindow(CheckingsWindow&);
     void setSaveWindow(SavingsWindow&);
+    void Window::buildWindow(User& user);
 private:
     QPushButton *switchSavingsButton;
     QPushButton *switchCheckingButton;
@@ -27,6 +28,8 @@ private:
     QTextEdit *checkingsAmt;
     SavingsWindow *savingsWindow;
     CheckingsWindow *checkingsWindow;
+
+    User *myUser;
 
 
 public slots:
