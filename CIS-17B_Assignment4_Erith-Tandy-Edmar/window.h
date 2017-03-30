@@ -39,7 +39,7 @@ public:
     void setSaveWindow(SavingsWindow&);
 
     //VOID FUNCTIONS:
-    void Window::buildWindow(User& user);
+    void buildWindow(User& user);
 
 public slots:
     //Checkings
