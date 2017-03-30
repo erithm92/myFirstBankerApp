@@ -12,7 +12,7 @@
 #include <QPushButton>
 #include <QtCore/QCoreApplication>
 #include <QString>
-
+#include <QList>
 class User
 {
 
@@ -51,6 +51,13 @@ public:
     //Transfer
     void openTransactions(); //slot for showTransactions
     void transferFunds(); //slot for transferFunds
+    struct transaction
+    {
+        int transactionID = 0;
+        Account *accountNumDestination = NULL;
+        int date = 0;
+        Account *accountNUmberSource = NULL;
+    };
 };
 
 #endif // USER_H
