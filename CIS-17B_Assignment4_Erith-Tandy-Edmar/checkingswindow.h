@@ -1,27 +1,40 @@
 #ifndef CHECKINGSWINDOW_H
 #define CHECKINGSWINDOW_H
 
+#include "User.h"
+
 #include <QObject>
 #include <QWidget>
 #include <QTextEdit>
-#include "user.h"
 
 class CheckingsWindow : public QWidget
 {
-    Q_OBJECT
-public:
-    explicit CheckingsWindow(QWidget *parent = 0);
-    User *myUser = NULL;
-    void setUser(User&);
-    void buildWindow();
+    Q_OBJECT // <Tandy> for Qt to work with this class
+
 private:
+    //QT:
     QTextEdit *accountNumView;
     QTextEdit *amountNumView;
     QTextEdit *overdraftView;
     QTextEdit *showUser;
+
+public:
+    //QT:
+    explicit CheckingsWindow(QWidget *parent = 0);
+
+    //DATA:
+    User *myUser = NULL;
+
+    //MUTATORS (SETTERS):
+    void setUser(User&);
+
+    //VOID FUNCTIONS:
+    void buildWindow();
+
 signals:
 
 public slots:
+
 };
 
 #endif // CHECKINGSWINDOW_H

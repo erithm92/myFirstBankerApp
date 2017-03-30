@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = Virtual_Banker_HW3_Erith_and_Tandy
+TARGET = CIS-17B_BankingProgram_Erith-Tandy-Edmar
 
 QT = core gui
 
@@ -7,19 +7,19 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 SOURCES += \
     main.cpp \
-    window.cpp \
-    user.cpp \
-    savings.cpp \
-    checkings.cpp \
-    account.cpp \
-    savingswindow.cpp \
-    checkingswindow.cpp
+    Account.cpp \
+    Checkings.cpp \
+    CheckingsWindow.cpp \
+    Savings.cpp \
+    SavingsWindow.cpp \
+    User.cpp \
+    Window.cpp
 
 HEADERS += \
-    window.h \
-    user.h \
-    savings.h \
-    checkings.h \
-    account.h \
-    savingswindow.h \
-    checkingswindow.h
+    Account.h \
+    Checkings.h \
+    CheckingsWindow.h \
+    Savings.h \
+    SavingsWindow.h \
+    User.h \
+    Window.h

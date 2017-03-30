@@ -1,24 +1,23 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <QWidget>
-#include<QPushButton>
-#include<QHBoxLayout>
-#include<QTextEdit>
-#include <QtCore/QCoreApplication>
-#include <QObject>
+#include "CheckingsWindow.h"
+#include "SavingsWindow.h"
 
-#include "savingswindow.h"
-#include "checkingswindow.h"
-class Window : public QWidget
+#include <QObject>
+#include <QWidget>
+#include <QTextEdit>
+
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QtCore/QCoreApplication>
+
+class Window : public QWidget // <Tandy> Inherit from QWidget so this class can have Qt functionality
 {
-    Q_OBJECT
-public:
-    explicit Window(QWidget *parent = 0);
-    void setCheckWindow(CheckingsWindow&);
-    void setSaveWindow(SavingsWindow&);
-    void Window::buildWindow(User& user);
+    Q_OBJECT // <Tandy> for Qt to work with this class
+
 private:
+    //QT:
     QPushButton *switchSavingsButton;
     QPushButton *switchCheckingButton;
     QPushButton *transferFundsButton;
@@ -31,12 +30,24 @@ private:
 
     User *myUser;
 
+public:
+    //QT:
+    explicit Window(QWidget *parent = 0);
+
+    //MUTATORS (SETTERS):
+    void setCheckWindow(CheckingsWindow&);
+    void setSaveWindow(SavingsWindow&);
+
+    //VOID FUNCTIONS:
+    void Window::buildWindow(User& user);
 
 public slots:
-    void winche();
-    void winsav();
-signals:
+    //Checkings
+    void winche(); // <Tandy> Edmar's slot to create a Checkings window
+    //Savings
+    void winsav(); // <Tandy> Edmar's slot to create a Savings window
 
+signals:
 
 };
 

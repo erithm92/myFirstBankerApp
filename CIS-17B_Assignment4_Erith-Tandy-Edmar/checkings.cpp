@@ -1,5 +1,6 @@
-#include "checkings.h"
+#include "Checkings.h"
 
+//CONSTRUCTORS:
 Checkings::Checkings()
 {
     overdraftFee = 35;
@@ -11,6 +12,7 @@ Checkings::Checkings(Checkings &obj){
     overdraftFee = obj.getOverdraft();
 }
 
+//ACCESSORS (GETTERS):
 double Checkings::getOverdraft()
 {
     return overdraftFee;

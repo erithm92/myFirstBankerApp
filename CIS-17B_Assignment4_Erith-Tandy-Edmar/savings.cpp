@@ -1,21 +1,19 @@
-#include "savings.h"
+#include "Savings.h"
 
+//CONSTRUCTORS:
 Savings::Savings()
 {
     annualInterest = .02;
     setAmount(100);
 }
 
-// <Tandy> defining copy contructor for user.cpp line 10 to fix "attempting to reference a deleted function"
-/*Savings::Savings(Savings &obj){
-    annualInterest = obj.getInterest();
-}*/
-
+//ACCESSORS (GETTERS):
 double Savings::getInterest()
 {
     return annualInterest;
 }
 
+//MUTATORS (SETTERS):
 void Savings::setInterest(double interest)
 {
     annualInterest = interest;
