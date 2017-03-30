@@ -32,9 +32,19 @@ void Window::buildWindow(User& user)
     QString amString2 = "Checkings : $" + amountNumQString2;
     checkingsAmt = new QTextEdit(amString2);
 
+    QSize checkingsSize = checkingsAmt->document()->size().toSize();
+    checkingsSize.setWidth(QWIDGETSIZE_MAX);
+    checkingsSize.setHeight(25);
+    checkingsAmt->setMaximumSize(checkingsSize);
+
     QString amountNumQString = QString::number(myUser->getSavingsAmount());
     QString amString = "Savings : $" + amountNumQString;
     savingsAmt = new QTextEdit(amString);
+
+    QSize savingsSize = savingsAmt->document()->size().toSize();
+    savingsSize.setWidth(QWIDGETSIZE_MAX);
+    savingsSize.setHeight(25);
+    savingsAmt->setMaximumSize(savingsSize);
 
         QHBoxLayout *textlayout = new QHBoxLayout;
             textlayout->addWidget(checkingsAmt);

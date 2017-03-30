@@ -29,6 +29,8 @@ void SavingsWindow::buildWindow()
         showUserSize.setHeight(25);
     showUser->setMaximumSize(showUserSize);
 
+
+
     //Account#
     QString accountNumQString = QString::number(myUser->getSavingsAcc());
     QString accString = "Account #: " + accountNumQString;
