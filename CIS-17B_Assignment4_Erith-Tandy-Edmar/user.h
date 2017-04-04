@@ -18,9 +18,17 @@ class User
 
 private:
     //QT:
-    Savings *mySavings = NULL;
     Checkings *myCheckings = NULL;
+    Savings *mySavings = NULL;
     QString name;
+    struct transaction // <Tandy> Moved transaction struct into private above private QList so it can template that struct to hold a list of them.
+    {
+        int transactionID = 0;
+        Account *accountNumDestination = NULL;
+        int date = 0;
+        Account *accountNUmberSource = NULL;
+    };
+    QList<transaction> transactionsList;
 
 public:
     //CONSTRUCTORS:
@@ -51,13 +59,8 @@ public:
     //Transfer
     void openTransactions(); //slot for showTransactions
     void transferFunds(); //slot for transferFunds
-    struct transaction
-    {
-        int transactionID = 0;
-        Account *accountNumDestination = NULL;
-        int date = 0;
-        Account *accountNUmberSource = NULL;
-    };
+    void showTransaction(int transactionDateOrID); /* <Tandy> Accesses User private QList TransactionsList;
+    retrieves transaction struct; displays requested information from struct within QList */
 };
 
 #endif // USER_H

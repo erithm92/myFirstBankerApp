@@ -73,4 +73,9 @@ void User::setSavings(Savings& Savings)
 
 //VOID FUNCTIONS:
 void User::openTransactions(){}
+
 void User::transferFunds(){}
+
+void User::showTransaction(int transactionDateOrID){ // <Tandy> function to display transaction from date or ID int; *may replace openTransactions()
+
+}
