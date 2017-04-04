@@ -72,5 +72,14 @@ void User::setSavings(Savings& Savings)
 }
 
 //VOID FUNCTIONS:
-void User::openTransactions(){}
-void User::transferFunds(){}
+void User::openTransactions()
+{
+
+}
+void User::transferFunds()
+{
+    QDate today;
+    transaction userTran;
+    userTran.date;
+    today.currentDate();
+}

@@ -13,6 +13,7 @@
 #include <QtCore/QCoreApplication>
 #include <QString>
 #include <QList>
+#include <QDate>
 class User
 {
 
@@ -49,15 +50,17 @@ public:
 
     //VOID FUNCTIONS:
     //Transfer
-    void openTransactions(); //slot for showTransactions
-    void transferFunds(); //slot for transferFunds
     struct transaction
     {
         int transactionID = 0;
-        Account *accountNumDestination = NULL;
-        int date = 0;
+        QDate *date = NULL; // <Tandy> 99th day, 99th month, 9999th year
         Account *accountNUmberSource = NULL;
+        Account *accountNumDestination = NULL;
     };
+
+    void openTransactions(); //slot for showTransactions
+    void transferFunds(); //slot for transferFunds
+
 };
 
 #endif // USER_H
