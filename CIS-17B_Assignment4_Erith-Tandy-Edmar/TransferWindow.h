@@ -2,7 +2,7 @@
 #define TRANSFERWINDOW_H
 
 #include <QWidget>
-#include <QButtonGroup>
+#include <QPushButton>
 #include <QTextEdit>
 
 class TransferWindow : public QWidget
@@ -11,6 +11,9 @@ class TransferWindow : public QWidget
 private:
     QPushButton *transferSavings;
     QPushButton *transferCheckings;
+    QTextEdit *transfer;
+
+
 
 public:
     explicit TransferWindow(QWidget *parent = 0);
@@ -18,6 +21,8 @@ public:
 signals:
 
 public slots:
+    void transfer();
+
 
 };
 

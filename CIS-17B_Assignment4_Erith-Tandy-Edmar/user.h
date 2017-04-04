@@ -46,6 +46,8 @@ public:
     //Savings
     void setSavings(Savings&);
     //User
+
+
     void setName(const QString &string);
 
     //VOID FUNCTIONS:
