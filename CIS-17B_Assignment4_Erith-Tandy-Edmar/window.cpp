@@ -21,6 +21,10 @@ void Window::setSaveWindow(SavingsWindow& swindow)
 {
     savingsWindow = &swindow;
 }
+void Window::setTransWindow(TransferWindow& twindow)
+{
+    transWindow = &twindow;
+}
 
 //VOID FUNCTIONS:
 void Window::buildWindow(User& user)
@@ -95,8 +99,7 @@ void Window::winsav() //slot emitter created by Edmar
 //transWin
 void Window::transWin()
 {
- TransferWindow tra;
- tra.transferWin();
+    transWindow->show();
 }
 void Window::tranHisWin()
 {
