@@ -1,9 +1,10 @@
 #include "User.h"
+#include <iostream>
 
 //CONSTRUCTORS:
 User::User()
 {
-
+    showTransaction(-1);
 }
 
 User::User(Checkings& checkings, Savings& savings)
@@ -72,9 +73,25 @@ void User::setSavings(Savings& Savings)
 }
 
 //VOID FUNCTIONS:
+//<<<<<<< HEAD
+void User::openTransactions(){}
+
+void User::transferFunds(){}
+
+void User::showTransaction(int transactionDateOrID){ // <Tandy> function to display transaction from date or ID int; *may replace openTransactions()
+    if(transactionDateOrID == 4){ // <Tandy> int verified to be an ID
+
+
+        //qSort(transactionsList.begin(), transactionsList.end()); // <Tandy> pass into qSort being and end iterators for the list
+        //QList<transaction>::iterator it = qFind(transactionsList.begin(), transactionsList.end(), transactionDateOrID); // <Tandy>;
+        // iterator it is assigned the address of the list item (the transaction struct)
+       // transaction temp = *it;
+        //std::cout << temp.date;
+    } // end if
+
 void User::openTransactions()
 {
-
+//
 }
 void User::transferFunds()
 {
