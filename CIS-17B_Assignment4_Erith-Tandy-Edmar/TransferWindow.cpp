@@ -61,3 +61,12 @@ void TransferWindow::transferWin()
 {
 
 }
+void TransferWindow::savTochec()
+{
+
+}
+
+void TransferWindow::checTosav()
+{
+
+}
