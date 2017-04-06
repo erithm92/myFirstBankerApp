@@ -13,6 +13,9 @@
 #include <QtCore/QCoreApplication>
 #include <QString>
 #include <list>
+#include <QList>
+#include <QDate>
+
 class User
 {
 
@@ -61,14 +64,29 @@ public:
     //Savings
     void setSavings(Savings&);
     //User
+
+
     void setName(const QString &string);
 
     //VOID FUNCTIONS:
     //Transfer
+
     void openTransactions(); //slot for showTransactions
     void transferFunds(); //slot for transferFunds
     void showTransaction(int transactionDateOrID); /* <Tandy> Accesses User private QList TransactionsList;
     retrieves transaction struct; displays requested information from struct within QList */
+
+/*    struct transaction
+    {
+        int transactionID = 0;
+        QDate *date = NULL; // <Tandy> 99th day, 99th month, 9999th year
+        Account *accountNUmberSource = NULL;
+        Account *accountNumDestination = NULL;
+    };
+*/
+//    void openTransactions(); //slot for showTransactions
+//    void transferFunds(); //slot for transferFunds
+
 };
 
 #endif // USER_H

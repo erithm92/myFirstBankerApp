@@ -73,6 +73,7 @@ void User::setSavings(Savings& Savings)
 }
 
 //VOID FUNCTIONS:
+//<<<<<<< HEAD
 void User::openTransactions(){}
 
 void User::transferFunds(){}
@@ -87,4 +88,15 @@ void User::showTransaction(int transactionDateOrID){ // <Tandy> function to disp
        // transaction temp = *it;
         //std::cout << temp.date;
     } // end if
+
+void User::openTransactions()
+{
+//
+}
+void User::transferFunds()
+{
+    QDate today;
+    transaction userTran;
+    userTran.date;
+    today.currentDate();
 }
