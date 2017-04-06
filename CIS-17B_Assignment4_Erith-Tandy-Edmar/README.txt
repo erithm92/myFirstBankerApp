@@ -1,3 +1,4 @@
+
 Main window buttons will all try functions through User. 
 	If User is null or isn't connected, report "NO USER"
 
@@ -24,3 +25,8 @@ Savings and Checkings classes will hold a function to create a window class they
 	*I didn't figure out how to change it back, so I tried syncing to roll back my changes after saving to a separate location for backup, but the sync wouldn't work.
 	*My committ will have this larger main window, which I'm assuming will be an easy fix.
 </Tandy>
+<Edmar>
+transaction class added and need implementation
+its working currently link with windows
+</Edmar>
+

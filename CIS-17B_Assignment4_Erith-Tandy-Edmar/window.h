@@ -3,7 +3,7 @@
 
 #include "CheckingsWindow.h"
 #include "SavingsWindow.h"
-
+#include "TransferWindow.h"
 #include <QObject>
 #include <QWidget>
 #include <QTextEdit>
@@ -46,6 +46,8 @@ public slots:
     void winche(); // <Tandy> Edmar's slot to create a Checkings window
     //Savings
     void winsav(); // <Tandy> Edmar's slot to create a Savings window
+    void transWin();//
+    void tranHisWin(); // to be implemented
 
 signals:
 

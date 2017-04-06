@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QTextEdit>
-
+#include <QMessageBox>
 class TransferWindow : public QWidget
 {
     Q_OBJECT
@@ -21,7 +21,7 @@ public:
 signals:
 
 public slots:
-    void transfer();
+    void transferWin();
 
 
 };

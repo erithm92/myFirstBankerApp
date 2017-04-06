@@ -63,6 +63,8 @@ void Window::buildWindow(User& user)
     //Signals and Slots
     connect(switchCheckingButton, SIGNAL (released()), this, SLOT (winche()));
     connect(switchSavingsButton, SIGNAL (released()), this, SLOT (winsav()));
+    //transfer
+    connect(transferFundsButton, SIGNAL (released()), this, SLOT (transWin()));
 
     //QHBoxLayout
     QHBoxLayout *buttonlayout = new QHBoxLayout;
@@ -88,4 +90,15 @@ void Window::winche() //slot emitter created by Edmar
 void Window::winsav() //slot emitter created by Edmar
 {
     savingsWindow->show();
+}
+
+//transWin
+void Window::transWin()
+{
+ TransferWindow tra;
+ tra.transferWin();
+}
+void Window::tranHisWin()
+{
+
 }
