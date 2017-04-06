@@ -69,6 +69,9 @@ public:
     void setName(const QString &string);
 
     //VOID FUNCTIONS:
+    void transferFunds(Account source, Account destination, double amount);
+
+
     //Transfer
 
    // void openTransactions(); //slot for showTransactions

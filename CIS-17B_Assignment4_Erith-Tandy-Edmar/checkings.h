@@ -16,6 +16,9 @@ public:
 
     //ACCESSORS (GETTERS):
     double getOverdraft();
+
+    //validator
+    bool validator(double);
 };
 
 #endif // CHECKINGS_H
