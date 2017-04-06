@@ -12,7 +12,7 @@
 #include <QPushButton>
 #include <QtCore/QCoreApplication>
 #include <QString>
-#include <QList>
+#include <list>
 class User
 {
 
@@ -21,14 +21,22 @@ private:
     Checkings *myCheckings = NULL;
     Savings *mySavings = NULL;
     QString name;
+
     struct transaction // <Tandy> Moved transaction struct into private above private QList so it can template that struct to hold a list of them.
     {
-        int transactionID = 0;
+        int transactionID = -1;
+        int date = -999; // <Tandy> mmddyyyy is 8 digits
+        Account *accountNumberSource = NULL;
         Account *accountNumDestination = NULL;
-        int date = 0;
-        Account *accountNUmberSource = NULL;
+        int transfer = 0; // <Tandy> direction and magnitude of monetary transfer, with respect to Source and Destination;
+        // the format is: direction withdraws from the Source to the Destination, and magnitude is the amount of money transferred;
+        // example: when Source is a Checkings, Destination is a Savings, and transfer = 150, then: ;
+        // 1) $150 is withdrawn from myCheckings (let's say there was $1000 in myCheckings originally);
+        // 2) $150 is deposited to mySavings (let's say there was $1 in mySavings originally);
+        // 3) after the transfer, there will be: $850 in myCheckings, and $151 in mySavings
+
     };
-    QList<transaction> transactionsList;
+    std::list<transaction> transactionsList;
 
 public:
     //CONSTRUCTORS:
