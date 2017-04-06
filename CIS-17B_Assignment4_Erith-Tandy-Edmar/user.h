@@ -71,10 +71,10 @@ public:
     //VOID FUNCTIONS:
     //Transfer
 
-    void openTransactions(); //slot for showTransactions
-    void transferFunds(); //slot for transferFunds
-    void showTransaction(int transactionDateOrID); /* <Tandy> Accesses User private QList TransactionsList;
-    retrieves transaction struct; displays requested information from struct within QList */
+   // void openTransactions(); //slot for showTransactions
+   // void transferFunds(); //slot for transferFunds
+    //void showTransaction(int transactionDateOrID); /* <Tandy> Accesses User private QList TransactionsList;
+   // retrieves transaction struct; displays requested information from struct within QList */
 
 /*    struct transaction
     {
