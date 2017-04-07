@@ -18,7 +18,7 @@ public:
     double getOverdraft();
 
     //validator
-    bool validator(double);
+    char validator(double);
 };
 
 #endif // CHECKINGS_H
