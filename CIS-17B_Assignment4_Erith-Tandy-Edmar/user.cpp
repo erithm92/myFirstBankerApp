@@ -36,6 +36,10 @@ double User::getCheckingsOverdraft()
 {
     return myCheckings->getOverdraft();
 }
+Checkings User::getCheckings()
+{
+    return *myCheckings;
+}
 
 //Savings
 int User::getSavingsAcc()
@@ -51,6 +55,10 @@ double User::getSavingsAmount()
 double User::getSavingsInterest()
 {
     return mySavings->getInterest();
+}
+Savings User::getSavings()
+{
+    return *mySavings;
 }
 
 //MUTATORS (SETTERS):

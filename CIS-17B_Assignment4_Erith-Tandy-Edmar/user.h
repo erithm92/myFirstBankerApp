@@ -61,8 +61,10 @@ public:
     //MUTATORS (SETTERS):
     //Checkings
     void setCheckings(Checkings&);
+    Checkings getCheckings();
     //Savings
     void setSavings(Savings&);
+    Savings getSavings();
     //User
 
 
