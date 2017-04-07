@@ -55,7 +55,8 @@ void TransferWindow::transferWin()
 {
 
 }
-void TransferWindow::savTochec()
+
+void TransferWindow::checTosav()
 {
     QString amount = transferAmt->text();
     double temp = amount.toDouble();
@@ -65,13 +66,13 @@ void TransferWindow::savTochec()
     update();
 }
 
-void TransferWindow::checTosav()
+void TransferWindow::savTochec()
 {
        QString amount = transferAmt->text();
        double temp = amount.toDouble();
        Checkings checking = myUser->getCheckings();
        Savings saving = myUser->getSavings();
-       myUser->transferFunds(checking, saving, temp);
+       myUser->transferFunds(saving, checking, temp);
        update();
 }
 void TransferWindow::UpdateWindow()
