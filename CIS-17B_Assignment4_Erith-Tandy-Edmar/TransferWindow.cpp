@@ -31,6 +31,10 @@ void TransferWindow::buildWindow(User& user)
             textlayout->addWidget(checkAmountNumView);
             textlayout->addWidget(savAmountNumView);
 
+    transfer = new QLabel("Transfer Amount");
+    transferAmt = new QLineEdit("0.00");
+    QValidator dv= new QDoubleValidator;
+    transferAmt->setValidator(dv);
 
     transferSavings = new QPushButton("Savings -> Checkings");
     transferCheckings = new QPushButton("Checkings -> Savings");
@@ -49,4 +53,28 @@ void TransferWindow::buildWindow(User& user)
 void TransferWindow::transferWin()
 {
 
+}
+void TransferWindow::savTochec()
+{
+    QString amount = ui->transferAmt->text();
+    double temp = amount.toDouble();
+    myUser->transferFunds(mySavings, myCheckings, temp);
+    update();
+}
+
+void TransferWindow::checTosav()
+{
+       QString amount = ui->transferAmt->text();
+       double temp = amount.toDouble();
+       myUser->transferFunds(myCheckings, mySavings, temp);
+       update();
+}
+void TransferWindow::update()
+{
+    QString savamountNumQString = QString::number(myUser->getSavingsAmount());
+    QString savamString = "Savings: $" + savamountNumQString;
+    savAmountNumView->setText(savamString);
+    QString checkamountNumQString = QString::number(myUser->getCheckingsAmount());
+    QString checkamString = "Checkings: " + checkamountNumQString;
+    checkAmountNumView->setText(checkamString);
 }
