@@ -27,8 +27,6 @@ signals:
 
 public slots:
     void transferWin();
-    void checTosav();
-    void savTochec();
 
 };
 
