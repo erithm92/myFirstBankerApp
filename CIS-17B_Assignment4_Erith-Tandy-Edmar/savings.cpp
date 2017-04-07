@@ -20,8 +20,8 @@ void Savings::setInterest(double interest)
 }
 
 //other
-char validator(double withdraw){ // <Tandy> validate whether withdraw can occur or not
-    if (amount - withdraw < 0){
+char Savings::validator(double withdraw){ // <Tandy> validate whether withdraw can occur or not
+    if (getAmount() - withdraw < 0){
         return 'F';
     }
     else{

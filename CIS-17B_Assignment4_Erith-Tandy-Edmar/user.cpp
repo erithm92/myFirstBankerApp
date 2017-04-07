@@ -91,7 +91,7 @@ void transferFunds(Account source, Account destination, double funds) // <Tandy>
             source.setAmount(source.getAmount() - 35); // apply extra $35 fee
         }
 
-        destination.setAmount((destination.getAmount() + funds); // <Tandy> set destination amount to its current amount, plus the funds transferred;
+        destination.setAmount(destination.getAmount() + funds); // <Tandy> set destination amount to its current amount, plus the funds transferred;
         // destination amount will increase
     }
     else
