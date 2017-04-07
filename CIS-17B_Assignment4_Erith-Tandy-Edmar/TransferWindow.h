@@ -5,7 +5,6 @@
 #include <QPushButton>
 #include <QTextEdit>
 #include <QMessageBox>
-#include <QLabel>
 #include "user.h"
 
 class TransferWindow : public QWidget
@@ -17,7 +16,6 @@ private:
     QTextEdit *transferAmt;
     QTextEdit *savAmountNumView;
     QTextEdit *checkAmountNumView;
-    QLabel *transfer;
 
     User *myUser;
 
@@ -29,8 +27,6 @@ signals:
 
 public slots:
     void transferWin();
-    void checTosav();
-    void savTochec();
 
 };
 

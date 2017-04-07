@@ -31,16 +31,6 @@ void TransferWindow::buildWindow(User& user)
             textlayout->addWidget(checkAmountNumView);
             textlayout->addWidget(savAmountNumView);
 
-    transfer = new QLabel("Transfer Ammount");
-    transferAmt = new QTextEdit("");
-    QSize transSize = transferAmt->document()->size().toSize();
-    transSize.setWidth(QWIDGETSIZE_MAX);
-    transSize.setHeight(25);
-    transferAmt->setMaximumSize(transSize);
-
-        QHBoxLayout *transline = new QHBoxLayout;
-            transline->addWidget(transfer);
-            transline->addWidget(transferAmt);
 
     transferSavings = new QPushButton("Savings -> Checkings");
     transferCheckings = new QPushButton("Checkings -> Savings");
@@ -51,22 +41,12 @@ void TransferWindow::buildWindow(User& user)
 
         QVBoxLayout *mainLayout = new QVBoxLayout();
             mainLayout->addLayout(textlayout);
-            mainLayout->addLayout(transline);
             mainLayout->addLayout(buttonlayout);
             setLayout(mainLayout);
 
 }
 
 void TransferWindow::transferWin()
-{
-
-}
-void TransferWindow::savTochec()
-{
-
-}
-
-void TransferWindow::checTosav()
 {
 
 }
