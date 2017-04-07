@@ -5,24 +5,32 @@
 #include <QPushButton>
 #include <QTextEdit>
 #include <QMessageBox>
+#include <QLabel>
+#include "user.h"
+
 class TransferWindow : public QWidget
 {
     Q_OBJECT
 private:
     QPushButton *transferSavings;
     QPushButton *transferCheckings;
-    QTextEdit *transfer;
+    QTextEdit *transferAmt;
+    QTextEdit *savAmountNumView;
+    QTextEdit *checkAmountNumView;
+    QLabel *transfer;
 
-
+    User *myUser;
 
 public:
     explicit TransferWindow(QWidget *parent = 0);
+    void buildWindow(User&);
 
 signals:
 
 public slots:
     void transferWin();
-
+    void checTosav();
+    void savTochec();
 
 };
 

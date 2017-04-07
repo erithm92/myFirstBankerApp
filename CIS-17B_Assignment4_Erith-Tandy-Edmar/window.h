@@ -27,6 +27,7 @@ private:
     QTextEdit *checkingsAmt;
     SavingsWindow *savingsWindow;
     CheckingsWindow *checkingsWindow;
+    TransferWindow *transWindow;
 
     User *myUser;
 
@@ -37,6 +38,7 @@ public:
     //MUTATORS (SETTERS):
     void setCheckWindow(CheckingsWindow&);
     void setSaveWindow(SavingsWindow&);
+    void setTransWindow(TransferWindow&);
 
     //VOID FUNCTIONS:
     void buildWindow(User& user);
