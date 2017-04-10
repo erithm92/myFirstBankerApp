@@ -62,18 +62,18 @@ void TransferWindow::checTosav()
     double temp = amount.toDouble();
     Checkings checking = myUser->getCheckings();
     Savings saving = myUser->getSavings();
-    myUser->transferFunds(checking, saving, temp);
+    myUser->transferFunds(checking, saving, 10);
     update();
 }
 
 void TransferWindow::savTochec()
 {
-       QString amount = transferAmt->text();
-       double temp = amount.toDouble();
-       Checkings checking = myUser->getCheckings();
-       Savings saving = myUser->getSavings();
-       myUser->transferFunds(saving, checking, temp);
-       update();
+    QString amount = transferAmt->text();
+    double temp = amount.toDouble();
+    Checkings checking = myUser->getCheckings();
+    Savings saving = myUser->getSavings();
+    myUser->transferFunds(saving, checking, 10);
+    update();
 }
 void TransferWindow::UpdateWindow()
 {
