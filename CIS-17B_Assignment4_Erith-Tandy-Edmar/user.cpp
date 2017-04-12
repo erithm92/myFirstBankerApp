@@ -81,7 +81,7 @@ void User::setSavings(Savings& Savings)
 }
 
 //VOID FUNCTIONS:
-void transferFunds(Account source, Account destination, double funds) // <Tandy> transfer funds from source to destination, for TransferWindow
+void User::transferFunds(Account source, Account destination, double funds) // <Tandy> transfer funds from source to destination, for TransferWindow
 {
     /*
      * if(source.id = 1) // id 1 for check 2 for save 0 for null

@@ -32,13 +32,17 @@ void TransferWindow::buildWindow(User& user)
             textlayout->addWidget(savAmountNumView);
 
     transfer = new QLabel("Transfer Amount");
-    transferAmt = new QLineEdit("0.00");
-    QDoubleValidator *dv= new QDoubleValidator(0.00, 99999.99,2, this);
-    dv->setNotation(QDoubleValidator::StandardNotation);
-    transferAmt->setValidator(dv);
+    transAmt = new QDoubleSpinBox;
+    transAmt->setDecimals(2);
+        QHBoxLayout *transLayout = new QHBoxLayout;
+            transLayout->addWidget(transfer);
+            transLayout->addWidget(transAmt);
 
     transferSavings = new QPushButton("Savings -> Checkings");
     transferCheckings = new QPushButton("Checkings -> Savings");
+
+    connect(transferSavings, SIGNAL (released()), this, SLOT (savTochec()));
+    connect(transferCheckings, SIGNAL (released()), this, SLOT (checTosav()));
 
         QHBoxLayout *buttonlayout = new QHBoxLayout;
             buttonlayout->addWidget(transferSavings);
@@ -46,6 +50,7 @@ void TransferWindow::buildWindow(User& user)
 
         QVBoxLayout *mainLayout = new QVBoxLayout();
             mainLayout->addLayout(textlayout);
+            mainLayout->addLayout(transLayout);
             mainLayout->addLayout(buttonlayout);
             setLayout(mainLayout);
 
@@ -58,22 +63,21 @@ void TransferWindow::transferWin()
 
 void TransferWindow::checTosav()
 {
-    QString amount = transferAmt->text();
-    double temp = amount.toDouble();
+
     Checkings checking = myUser->getCheckings();
     Savings saving = myUser->getSavings();
-    myUser->transferFunds(checking, saving, 10);
-    update();
+    myUser->transferFunds(checking, saving, transAmt->value());
+    UpdateWindow();
 }
 
 void TransferWindow::savTochec()
 {
-    QString amount = transferAmt->text();
-    double temp = amount.toDouble();
+    //QString amount = transferAmt->text();
+    //double temp = amount.toDouble();
     Checkings checking = myUser->getCheckings();
     Savings saving = myUser->getSavings();
-    myUser->transferFunds(saving, checking, 10);
-    update();
+    myUser->transferFunds(saving, checking, transAmt->value());
+    UpdateWindow();
 }
 void TransferWindow::UpdateWindow()
 {

@@ -6,10 +6,11 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QTextEdit>
-#include <QLineEdit>
 #include <QMessageBox>
 #include <QLabel>
-#include <QValidator>
+#include <QDoubleSpinBox>
+
+
 
 class TransferWindow : public QWidget
 {
@@ -18,7 +19,7 @@ private:
     QPushButton *transferSavings = NULL;
     QPushButton *transferCheckings = NULL;
     QLabel *transfer = NULL;
-    QLineEdit *transferAmt = NULL;
+    QDoubleSpinBox *transAmt = NULL;
     QTextEdit *savAmountNumView = NULL;
     QTextEdit *checkAmountNumView = NULL;
 
