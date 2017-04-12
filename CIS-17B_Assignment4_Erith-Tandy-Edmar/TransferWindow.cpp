@@ -3,10 +3,16 @@
 TransferWindow::TransferWindow(QWidget *parent) : QWidget(parent)
 {
 
+
 }
+
 void TransferWindow::buildWindow(User& user)
-{
+{   // need to resolve this shallow copy
+    //myUser is an instance and user is also another instance
+
     myUser = &user;
+
+
     QString savamountNumQString = QString::number(myUser->getSavingsAmount());
     QString savamString = "Savings: $" + savamountNumQString;
     savAmountNumView = new QTextEdit(savamString);
@@ -63,10 +69,11 @@ void TransferWindow::transferWin()
 
 void TransferWindow::checTosav()
 {
-
-    Checkings checking = myUser->getCheckings();
-    Savings saving = myUser->getSavings();
-    myUser->transferFunds(checking, saving, transAmt->value());
+     // i need to know the primitive datatype your trying to access
+    // otherwise this is not possible
+//   Checkings checking  = myUser->getCheckings();
+//    Savings saving = myUser->getSavings();
+  //  myUser->transferFunds(checking, saving, transAmt->value());
     UpdateWindow();
 }
 
@@ -74,9 +81,9 @@ void TransferWindow::savTochec()
 {
     //QString amount = transferAmt->text();
     //double temp = amount.toDouble();
-    Checkings checking = myUser->getCheckings();
-    Savings saving = myUser->getSavings();
-    myUser->transferFunds(saving, checking, transAmt->value());
+  //  Checkings checking = myUser->getCheckings();
+    //Savings saving = myUser->getSavings();
+ //   myUser->transferFunds(saving, checking, transAmt->value());
     UpdateWindow();
 }
 void TransferWindow::UpdateWindow()

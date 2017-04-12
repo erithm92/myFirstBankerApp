@@ -12,6 +12,7 @@ private:
 public:
     //CONSTRUCTORS:
     Savings();
+    Savings(const Savings& );
 
     //ACCESSORS (GETTERS):
     double getInterest();

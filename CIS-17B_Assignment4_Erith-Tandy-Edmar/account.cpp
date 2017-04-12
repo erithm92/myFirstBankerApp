@@ -1,13 +1,24 @@
 #include "Account.h"
 
 //DATA:
-int Account::accounts = 0;
+// why here ?
+
+//int Account::accounts = 0;
 
 //CONSTRUCTORS:
 Account::Account()
+{   //
+    this->amount = 0;
+    this-> accounts = 0;
+    //this->  accounts++;
+   // this->accountNumber = accounts;
+}
+
+//Edmar copy constructor added
+Account::Account(const Account & right)
 {
-    accounts++;
-    accountNumber = accounts;
+    this->amount = right.amount;
+    this->accountNumber = right.accountNumber;
 }
 
 //ACCESSORS (GETTERS):

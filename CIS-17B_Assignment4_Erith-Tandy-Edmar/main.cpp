@@ -17,7 +17,7 @@ int main(int argc, char **argv)
  SavingsWindow savingsWindow;
      savingsWindow.setUser(defaultUser);
      savingsWindow.buildWindow();
- TransferWindow transWindow;
+   TransferWindow transWindow;
     transWindow.buildWindow(defaultUser);
 
  Window window;

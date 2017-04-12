@@ -27,8 +27,11 @@ private:
 
 public:
     explicit TransferWindow(QWidget *parent = 0);
+    //TransferWindow();
+   // TransferWindow(const TransferWindow& );
     void buildWindow(User&);
     void UpdateWindow();
+
 
 signals:
 

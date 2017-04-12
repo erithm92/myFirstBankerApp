@@ -16,6 +16,18 @@ User::User(Checkings& checkings, Savings& savings)
 
 //ACCESSORS (GETTERS):
 //User
+
+User::User (const User& right)
+{
+//    Edmar  - copy constructor added for program stability
+//      copy construct creates deep copy
+//      usefull for inheritance
+
+    myCheckings = right.myCheckings;
+    mySavings = right.mySavings;
+    name = right.name;
+}
+
 QString User::getName() const
 {
     return name;

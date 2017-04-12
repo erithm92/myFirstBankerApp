@@ -1,10 +1,16 @@
 #include "Savings.h"
 
 //CONSTRUCTORS:
-Savings::Savings()
+Savings::Savings():Account()
 {
     annualInterest = .02;
     setAmount(100);
+}
+
+Savings::Savings(const Savings& right):Account(right)
+{
+    this->annualInterest = right.annualInterest;
+
 }
 
 //ACCESSORS (GETTERS):

@@ -45,6 +45,8 @@ public:
     //CONSTRUCTORS:
     User();
     User(Checkings&, Savings&); // <Tandy> edit to comply with error C2248
+//Edmar copy constructor added
+    User (const User& );
 
     //ACCESSORS (GETTERS):
     //Checkings
@@ -71,6 +73,8 @@ public:
     void setName(const QString &string);
 
     //VOID FUNCTIONS:
+    // this is too ambigious
+
     void transferFunds(Account source, Account destination, double amount);
 
 
