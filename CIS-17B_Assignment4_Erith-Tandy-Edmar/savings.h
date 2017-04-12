@@ -18,6 +18,9 @@ public:
 
     //MUTATORS (SETTERS):
     void setInterest(double);
+
+    //validator
+    char validator(double);
 };
 
 #endif // SAVINGS_H

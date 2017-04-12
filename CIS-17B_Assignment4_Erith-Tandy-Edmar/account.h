@@ -21,6 +21,9 @@ public:
 
     //MUTATORS (SETTERS):
     void setAmount(double);
+
+    //other
+    virtual char validator(double){return 0;}
 };
 
 #endif // ACCOUNT_H

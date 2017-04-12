@@ -20,3 +20,11 @@ void Account::setAmount(double amount)
 {
     this->amount = amount;
 }
+
+/*
+//other
+virtual char Account::validator(double)
+{
+    return 0;
+}
+*/
