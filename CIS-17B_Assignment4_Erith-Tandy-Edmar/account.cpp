@@ -9,9 +9,9 @@
 Account::Account()
 {   //
     this->amount = 0;
-    this-> accounts = 0;
-    //this->  accounts++;
-   // this->accountNumber = accounts;
+ //   this-> accounts = 0;
+    this->accounts++;
+    this->accountNumber = accounts;
 }
 
 //Edmar copy constructor added
@@ -30,6 +30,11 @@ double Account::getAmount(){return amount;}
 void Account::setAmount(double amount)
 {
     this->amount = amount;
+}
+
+void Account::setAccountNumber(int AccountNumber)
+{
+    accountNumber = AccountNumber;
 }
 
 /*

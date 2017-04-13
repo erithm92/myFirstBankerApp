@@ -79,11 +79,22 @@ void TransferWindow::checTosav()
 
 void TransferWindow::savTochec()
 {
-    //QString amount = transferAmt->text();
-    //double temp = amount.toDouble();
+   //QString amount = transferAmt->text();
+    QString amount = transAmt->text();
+
+    double temp = amount.toDouble();
+
   //  Checkings checking = myUser->getCheckings();
+
+
+//    checking = &myUser->getCheckings();
     //Savings saving = myUser->getSavings();
- //   myUser->transferFunds(saving, checking, transAmt->value());
+//    myUser->transferFunds(myUser->getSavings(),myUser->getCheckings(), transAmt->value());
+    //myUser->transferFunds(myUser->getSavings(),myUser->getCheckings(), transAmt->value());
+
+    myUser->transferFunds(myUser->getSavings(),myUser->getCheckings(), temp);
+
+
     UpdateWindow();
 }
 void TransferWindow::UpdateWindow()

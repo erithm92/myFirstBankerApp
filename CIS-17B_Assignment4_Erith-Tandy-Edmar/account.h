@@ -21,8 +21,10 @@ public:
     double getAmount();
     int getAccountNumber();
 
+
     //MUTATORS (SETTERS):
     void setAmount(double);
+    void setAccountNumber(int);
 
     //other
     //whats the virtual char for ?

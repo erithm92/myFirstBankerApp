@@ -74,7 +74,7 @@ public:
 
     //VOID FUNCTIONS:
     // this is too ambigious
-
+//myUser->transferFunds(myUser->getSavings(),myUser->getCheckings(), temp);
     void transferFunds(Account source, Account destination, double amount);
 
 
