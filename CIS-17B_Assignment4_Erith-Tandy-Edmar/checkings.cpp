@@ -1,14 +1,14 @@
 #include "Checkings.h"
 
 //CONSTRUCTORS:
-Checkings::Checkings():Account()  // don't forget where your inheriting from
+Checkings::Checkings()
 {
-    overdraftFee = 35;
-    setAmount(1000);
+    this->overdraftFee = 35;
+    this->setAmount(1000);
 }
 
 // <Tandy> defining copy contructor for user.cpp line 9 to fix "attempting to reference a deleted function"
-Checkings::Checkings(Checkings &obj):Account(obj){
+Checkings::Checkings(Checkings &obj){
     overdraftFee = obj.getOverdraft();
 }
 
@@ -17,16 +17,24 @@ double Checkings::getOverdraft()
 {
     return overdraftFee;
 }
-
-//validator
-char Checkings::validator(double withdraw){ // <Tandy> validator for overdraft
-    if ((getAmount() - withdraw) >= 0){
-        return 'T';
+bool Checkings::withdrawl(double amt)
+{
+    if(this->getAmount() - amt < -300)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Not enough funds!");
+        msgBox.exec();
+        return false;
     }
-    else if((getAmount() - withdraw) < 0 && (getAmount() - withdraw) >= -300){
-        return 'O';
+    else if(this->getAmount() - amt < 0 && this->getAmount() - amt > -300)
+    {
+        this->setAmount(this->getAmount() - this->overdraftFee);
+        this->setAmount(this->getAmount() - amt);
+        return true;
     }
-    else{
-        return 'F';
+    else
+    {
+        this->setAmount(this->getAmount() - amt);
+        return true;
     }
 }

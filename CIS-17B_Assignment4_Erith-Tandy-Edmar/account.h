@@ -1,9 +1,10 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
+#include <QMessageBox>
 class Account
 {
-private:
+protected:
     //DATA:
     double amount;
     int accountNumber;
@@ -25,11 +26,9 @@ public:
     //MUTATORS (SETTERS):
     void setAmount(double);
     void setAccountNumber(int);
+    void deposit(double);
 
-    //other
-    //whats the virtual char for ?
-    //virtual makes the entire class abstract which prevents it from having an instance
-    virtual char validator(double){return 0;}
+
 };
 
 #endif // ACCOUNT_H

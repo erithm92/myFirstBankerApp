@@ -20,8 +20,7 @@ public:
     //MUTATORS (SETTERS):
     void setInterest(double);
 
-    //validator
-    char validator(double);
+    bool withdrawl(double);
 };
 
 #endif // SAVINGS_H

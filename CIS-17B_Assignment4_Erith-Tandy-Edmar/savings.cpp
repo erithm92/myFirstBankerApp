@@ -1,13 +1,13 @@
 #include "Savings.h"
 
 //CONSTRUCTORS:
-Savings::Savings():Account()
+Savings::Savings()
 {
     annualInterest = .02;
-    setAmount(100);
+    this->setAmount(100);
 }
 
-Savings::Savings(const Savings& right):Account(right)
+Savings::Savings(const Savings& right)
 {
     this->annualInterest = right.annualInterest;
 
@@ -26,11 +26,18 @@ void Savings::setInterest(double interest)
 }
 
 //other
-char Savings::validator(double withdraw){ // <Tandy> validate whether withdraw can occur or not
-    if (getAmount() - withdraw < 0){
-        return 'F';
+bool Savings::withdrawl(double amt)
+{
+    if(this->getAmount() - amt < 0)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Not enough funds!");
+        msgBox.exec();
+        return false;
     }
-    else{
-        return 'T';
+    else
+    {
+        this->setAmount(this->getAmount()-amt);
+        return true;
     }
 }

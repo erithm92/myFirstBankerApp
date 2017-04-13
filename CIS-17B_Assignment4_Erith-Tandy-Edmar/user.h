@@ -63,10 +63,10 @@ public:
     //MUTATORS (SETTERS):
     //Checkings
     void setCheckings(Checkings&);
-    Checkings getCheckings();
+    Checkings * getCheckings();
     //Savings
     void setSavings(Savings&);
-    Savings getSavings();
+    Savings * getSavings();
     //User
 
 
@@ -75,7 +75,7 @@ public:
     //VOID FUNCTIONS:
     // this is too ambigious
 //myUser->transferFunds(myUser->getSavings(),myUser->getCheckings(), temp);
-    void transferFunds(Account source, Account destination, double amount);
+   // void transferFunds(Account source, Account destination, double amount);
 
 
     //Transfer

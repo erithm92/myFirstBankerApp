@@ -18,9 +18,8 @@ public:
 
     //ACCESSORS (GETTERS):
     double getOverdraft();
+    bool withdrawl(double);
 
-    //validator
-    char validator(double);
 };
 
 #endif // CHECKINGS_H

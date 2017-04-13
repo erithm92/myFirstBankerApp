@@ -48,9 +48,9 @@ double User::getCheckingsOverdraft()
 {
     return myCheckings->getOverdraft();
 }
-Checkings User::getCheckings()
+Checkings * User::getCheckings()
 {
-    return *myCheckings;
+    return myCheckings;
 }
 
 //Savings
@@ -68,9 +68,9 @@ double User::getSavingsInterest()
 {
     return mySavings->getInterest();
 }
-Savings User::getSavings()
+Savings * User::getSavings()
 {
-    return *mySavings;
+    return mySavings;
 }
 
 //MUTATORS (SETTERS):
@@ -93,33 +93,6 @@ void User::setSavings(Savings& Savings)
 }
 
 //VOID FUNCTIONS:
-void User::transferFunds(Account source, Account destination, double funds) // <Tandy> transfer funds from source to destination, for TransferWindow
-{
-    /*
-     * if(source.id = 1) // id 1 for check 2 for save 0 for null
-     * source.overdraftcheck
-     * else
-     * source.normale check
-     */
-    if(source.validator(funds) != 'F')
-    {
-        source.setAmount(source.getAmount() - funds); // <Tandy> set source amount to its current amount, minus the funds transferred;
-        // source amount will decrease
-
-        if(source.validator(funds) == 'O')
-        { // <Tandy> check for overdraft
-            source.setAmount(source.getAmount() - 35); // apply extra $35 fee
-        }
-
-        destination.setAmount(destination.getAmount() + funds); // <Tandy> set destination amount to its current amount, plus the funds transferred;
-        // destination amount will increase
-    }
-    else
-    {
-        //display error?
-    }
-}
-
 //<<<<<<< HEAD
 //void User::openTransactions(){}
 /*

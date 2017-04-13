@@ -40,6 +40,7 @@ void TransferWindow::buildWindow(User& user)
     transfer = new QLabel("Transfer Amount");
     transAmt = new QDoubleSpinBox;
     transAmt->setDecimals(2);
+    transAmt->setRange(0,10000);
         QHBoxLayout *transLayout = new QHBoxLayout;
             transLayout->addWidget(transfer);
             transLayout->addWidget(transAmt);
@@ -74,27 +75,19 @@ void TransferWindow::checTosav()
 //   Checkings checking  = myUser->getCheckings();
 //    Savings saving = myUser->getSavings();
   //  myUser->transferFunds(checking, saving, transAmt->value());
+    //Checkings *tempCheck = &myUser->getCheckings();
+   // Savings *tempSav = &myUser->getSavings();
+    //if(tempCheck->withdrawl(transAmt->value()))
+    //    tempSav->deposit(transAmt->value());
+    if(myUser->getCheckings()->withdrawl(transAmt->value()))
+        myUser->getSavings()->deposit(transAmt->value());
     UpdateWindow();
 }
 
 void TransferWindow::savTochec()
 {
-   //QString amount = transferAmt->text();
-    QString amount = transAmt->text();
-
-    double temp = amount.toDouble();
-
-  //  Checkings checking = myUser->getCheckings();
-
-
-//    checking = &myUser->getCheckings();
-    //Savings saving = myUser->getSavings();
-//    myUser->transferFunds(myUser->getSavings(),myUser->getCheckings(), transAmt->value());
-    //myUser->transferFunds(myUser->getSavings(),myUser->getCheckings(), transAmt->value());
-
-    myUser->transferFunds(myUser->getSavings(),myUser->getCheckings(), temp);
-
-
+    if(myUser->getSavings()->withdrawl(transAmt->value()))
+        myUser->getCheckings()->deposit(transAmt->value());
     UpdateWindow();
 }
 void TransferWindow::UpdateWindow()

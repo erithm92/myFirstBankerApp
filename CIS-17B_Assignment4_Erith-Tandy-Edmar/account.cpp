@@ -36,11 +36,7 @@ void Account::setAccountNumber(int AccountNumber)
 {
     accountNumber = AccountNumber;
 }
-
-/*
-//other
-virtual char Account::validator(double)
+void  Account::deposit(double amt)
 {
-    return 0;
+    this->amount += amt;
 }
-*/
