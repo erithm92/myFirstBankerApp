@@ -20,6 +20,7 @@ public:
     //MUTATORS (SETTERS):
     void setInterest(double);
 
+    //validator
     bool withdrawl(double);
 };
 

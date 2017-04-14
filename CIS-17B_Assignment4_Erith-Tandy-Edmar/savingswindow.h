@@ -28,6 +28,7 @@ public:
 
     //VOID FUNCTIONS:
     void buildWindow();
+    void updateWindow(); // <Tandy> updates the savings window with current amount
 
 signals:
 

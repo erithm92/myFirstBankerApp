@@ -18,6 +18,7 @@ void CheckingsWindow::setUser(User& user)
     myUser = &user;
 }
 
+//VOID FUNCTIONS
 void CheckingsWindow::buildWindow()
 {
     //User
@@ -77,4 +78,11 @@ void CheckingsWindow::buildWindow()
         mainLayout->addLayout(textlayout1);
         mainLayout->addLayout(textlayout2);
         setLayout(mainLayout);
+}
+
+void CheckingsWindow::updateWindow() // <Tandy> updates the checkings window with current amount
+{
+    QString amountNumQString = QString::number(myUser->getCheckingsAmount());
+    QString amString = "Amount: $" + amountNumQString;
+    amountNumView->setText(amString);
 }

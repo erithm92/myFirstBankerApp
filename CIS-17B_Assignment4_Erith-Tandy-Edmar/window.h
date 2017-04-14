@@ -42,6 +42,11 @@ public:
 
     //VOID FUNCTIONS:
     void buildWindow(User& user);
+    void updateWindow(); // <Tandy> updates the window with current che/sav amounts
+    void updateCheckings(); // <Tandy> updates the checkings window with current amount
+    void updateSavings(); // <Tandy> updates the savings window with current amount
+
+signals:
 
 public slots:
     //Checkings
@@ -50,9 +55,6 @@ public slots:
     void winsav(); // <Tandy> Edmar's slot to create a Savings window
     void transWin();//
     void tranHisWin(); // to be implemented
-
-signals:
-
 };
 
 #endif // WINDOW_H

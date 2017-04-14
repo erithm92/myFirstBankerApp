@@ -26,12 +26,14 @@ private:
     User *myUser = NULL;
 
 public:
+    //QT
     explicit TransferWindow(QWidget *parent = 0);
-    //TransferWindow();
-   // TransferWindow(const TransferWindow& );
+
+    //VOID FUNCTIONS
     void buildWindow(User&);
     void UpdateWindow();
 
+    //DATA
 
 signals:
 

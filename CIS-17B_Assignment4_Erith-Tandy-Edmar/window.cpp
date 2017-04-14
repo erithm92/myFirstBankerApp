@@ -32,18 +32,18 @@ void Window::buildWindow(User& user)
     myUser = &user;
 
     //Checkings and Savings Amount
-    QString amountNumQString2 = QString::number(myUser->getCheckingsAmount());
-    QString amString2 = "Checkings : $" + amountNumQString2;
-    checkingsAmt = new QTextEdit(amString2);
+    QString checkAmountNumQString = QString::number(myUser->getCheckingsAmount());
+    QString checkAmountString = "Checkings : $" + checkAmountNumQString;
+    checkingsAmt = new QTextEdit(checkAmountString);
 
     QSize checkingsSize = checkingsAmt->document()->size().toSize();
     checkingsSize.setWidth(QWIDGETSIZE_MAX);
     checkingsSize.setHeight(25);
     checkingsAmt->setMaximumSize(checkingsSize);
 
-    QString amountNumQString = QString::number(myUser->getSavingsAmount());
-    QString amString = "Savings : $" + amountNumQString;
-    savingsAmt = new QTextEdit(amString);
+    QString savAmountNumQString = QString::number(myUser->getSavingsAmount());
+    QString savAmountString = "Savings : $" + savAmountNumQString;
+    savingsAmt = new QTextEdit(savAmountString);
 
     QSize savingsSize = savingsAmt->document()->size().toSize();
     savingsSize.setWidth(QWIDGETSIZE_MAX);
@@ -83,16 +83,41 @@ void Window::buildWindow(User& user)
         setLayout(mainLayout);
 }
 
+void Window::updateWindow() // <Tandy> function to update window after transfers from TransferWindow.cpp
+{
+    QString checkAmountNumQString = QString::number(myUser->getCheckingsAmount());
+    QString checkAmountString = "Checkings : $" + checkAmountNumQString;
+    checkingsAmt->setText(checkAmountString);
+
+    QString savAmountNumQString = QString::number(myUser->getSavingsAmount());
+    QString savAmountString = "Savings : $" + savAmountNumQString;
+    savingsAmt->setText(savAmountString);
+}
+
+void Window::updateCheckings() // <Tandy> updates the checkings window with current amount
+{
+
+}
+
+void Window::updateSavings() // <Tandy> updates the savings window with current amount
+{
+
+}
+
 //SLOT EMITTERS:
 //Checkings
 void Window::winche() //slot emitter created by Edmar
 {
+    updateWindow();
+    checkingsWindow->updateWindow(); // <Tandy> updates checkings window
     checkingsWindow->show();
 }
 
 //Savings
 void Window::winsav() //slot emitter created by Edmar
 {
+    updateWindow();
+    savingsWindow->updateWindow(); // <Tandy> updates savings window
     savingsWindow->show();
 }
 
@@ -101,6 +126,7 @@ void Window::transWin()
 {
     transWindow->show();
 }
+
 void Window::tranHisWin()
 {
 

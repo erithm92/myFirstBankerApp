@@ -29,8 +29,6 @@ void SavingsWindow::buildWindow()
         showUserSize.setHeight(25);
     showUser->setMaximumSize(showUserSize);
 
-
-
     //Account#
     QString accountNumQString = QString::number(myUser->getSavingsAcc());
     QString accString = "Account #: " + accountNumQString;
@@ -80,4 +78,11 @@ void SavingsWindow::buildWindow()
     amountNumView->setReadOnly(true);
     interestView->setReadOnly(true);
     showUser->setReadOnly(true);
+}
+
+void SavingsWindow::updateWindow() // <Tandy> updates the savings window with current amount
+{
+    QString amountNumQString = QString::number(myUser->getSavingsAmount());
+    QString amString = "Amount: " + amountNumQString;
+    amountNumView->setText(amString);
 }

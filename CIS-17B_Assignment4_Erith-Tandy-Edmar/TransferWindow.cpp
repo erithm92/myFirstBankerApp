@@ -1,24 +1,24 @@
 #include "TransferWindow.h"
 
+//CONSTRUCTORS
 TransferWindow::TransferWindow(QWidget *parent) : QWidget(parent)
 {
 
-
 }
 
+//VOID FUNCTIONS
 void TransferWindow::buildWindow(User& user)
 {   // need to resolve this shallow copy
     //myUser is an instance and user is also another instance
 
     myUser = &user;
 
-
     QString savamountNumQString = QString::number(myUser->getSavingsAmount());
     QString savamString = "Savings: $" + savamountNumQString;
     savAmountNumView = new QTextEdit(savamString);
 
     QString checkamountNumQString = QString::number(myUser->getCheckingsAmount());
-    QString checkamString = "Checkings: " + checkamountNumQString;
+    QString checkamString = "Checkings: $" + checkamountNumQString;
     checkAmountNumView = new QTextEdit(checkamString);
 
 
@@ -45,15 +45,15 @@ void TransferWindow::buildWindow(User& user)
             transLayout->addWidget(transfer);
             transLayout->addWidget(transAmt);
 
-    transferSavings = new QPushButton("Savings -> Checkings");
     transferCheckings = new QPushButton("Checkings -> Savings");
+    transferSavings = new QPushButton("Savings -> Checkings");
 
-    connect(transferSavings, SIGNAL (released()), this, SLOT (savTochec()));
     connect(transferCheckings, SIGNAL (released()), this, SLOT (checTosav()));
+    connect(transferSavings, SIGNAL (released()), this, SLOT (savTochec()));
 
         QHBoxLayout *buttonlayout = new QHBoxLayout;
-            buttonlayout->addWidget(transferSavings);
             buttonlayout->addWidget(transferCheckings);
+            buttonlayout->addWidget(transferSavings);
 
         QVBoxLayout *mainLayout = new QVBoxLayout();
             mainLayout->addLayout(textlayout);
@@ -61,8 +61,22 @@ void TransferWindow::buildWindow(User& user)
             mainLayout->addLayout(buttonlayout);
             setLayout(mainLayout);
 
+    // <Tandy> setReadOnly to true for Checkings and Savings amount to make text read-only
+    checkAmountNumView->setReadOnly(true);
+    savAmountNumView->setReadOnly(true);
 }
 
+void TransferWindow::UpdateWindow()
+{
+    QString checkamountNumQString = QString::number(myUser->getCheckingsAmount());
+    QString checkamString = "Checkings: $" + checkamountNumQString;
+    checkAmountNumView->setText(checkamString);
+    QString savamountNumQString = QString::number(myUser->getSavingsAmount());
+    QString savamString = "Savings: $" + savamountNumQString;
+    savAmountNumView->setText(savamString);
+}
+
+//PUBLIC SLOTS
 void TransferWindow::transferWin()
 {
 
@@ -70,15 +84,6 @@ void TransferWindow::transferWin()
 
 void TransferWindow::checTosav()
 {
-     // i need to know the primitive datatype your trying to access
-    // otherwise this is not possible
-//   Checkings checking  = myUser->getCheckings();
-//    Savings saving = myUser->getSavings();
-  //  myUser->transferFunds(checking, saving, transAmt->value());
-    //Checkings *tempCheck = &myUser->getCheckings();
-   // Savings *tempSav = &myUser->getSavings();
-    //if(tempCheck->withdrawl(transAmt->value()))
-    //    tempSav->deposit(transAmt->value());
     if(myUser->getCheckings()->withdrawl(transAmt->value()))
         myUser->getSavings()->deposit(transAmt->value());
     UpdateWindow();
@@ -89,13 +94,4 @@ void TransferWindow::savTochec()
     if(myUser->getSavings()->withdrawl(transAmt->value()))
         myUser->getCheckings()->deposit(transAmt->value());
     UpdateWindow();
-}
-void TransferWindow::UpdateWindow()
-{
-    QString savamountNumQString = QString::number(myUser->getSavingsAmount());
-    QString savamString = "Savings: $" + savamountNumQString;
-    savAmountNumView->setText(savamString);
-    QString checkamountNumQString = QString::number(myUser->getCheckingsAmount());
-    QString checkamString = "Checkings: " + checkamountNumQString;
-    checkAmountNumView->setText(checkamString);
 }
