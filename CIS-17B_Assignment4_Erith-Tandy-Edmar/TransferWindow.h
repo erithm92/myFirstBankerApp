@@ -36,6 +36,7 @@ public:
     //DATA
 
 signals:
+    void fundsTransferred(bool transferred);
 
 public slots:
     void transferWin();

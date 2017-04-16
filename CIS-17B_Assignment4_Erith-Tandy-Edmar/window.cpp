@@ -81,6 +81,7 @@ void Window::buildWindow(User& user)
         mainLayout->addLayout(textlayout);
         mainLayout->addLayout(buttonlayout);
         setLayout(mainLayout);
+
 }
 
 void Window::updateWindow() // <Tandy> function to update window after transfers from TransferWindow.cpp
@@ -96,37 +97,41 @@ void Window::updateWindow() // <Tandy> function to update window after transfers
 
 void Window::updateCheckings() // <Tandy> updates the checkings window with current amount
 {
-
+    checkingsWindow->updateWindow(); // <Tandy> updates checkings window
 }
 
 void Window::updateSavings() // <Tandy> updates the savings window with current amount
 {
-
+    savingsWindow->updateWindow(); // <Tandy> updates savings window
 }
 
-//SLOT EMITTERS:
+//PUBLIC SLOTS:
 //Checkings
 void Window::winche() //slot emitter created by Edmar
 {
-    updateWindow();
-    checkingsWindow->updateWindow(); // <Tandy> updates checkings window
     checkingsWindow->show();
 }
 
 //Savings
 void Window::winsav() //slot emitter created by Edmar
 {
-    updateWindow();
-    savingsWindow->updateWindow(); // <Tandy> updates savings window
     savingsWindow->show();
 }
 
-//transWin
+//Transfer
 void Window::transWin()
 {
     transWindow->show();
 }
 
+void Window::transUpdate() // <Tandy> this will receive a signal emitted from TransferWindow to call update functions
+{
+    updateWindow();
+    updateCheckings();
+    updateSavings();
+}
+
+//Transaction History
 void Window::tranHisWin()
 {
 
