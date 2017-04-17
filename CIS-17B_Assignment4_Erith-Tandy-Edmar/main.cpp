@@ -28,5 +28,7 @@ Window window;
     window.setTransWindow(transWindow);
     window.show();
 
+QObject::connect(&transWindow, SIGNAL(fundsTransferred(bool)), &window, SLOT(transUpdate())); // <Tandy> This updates Window after a transfer
+
 return app.exec();
 }

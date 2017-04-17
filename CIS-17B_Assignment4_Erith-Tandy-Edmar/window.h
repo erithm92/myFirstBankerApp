@@ -53,7 +53,10 @@ public slots:
     void winche(); // <Tandy> Edmar's slot to create a Checkings window
     //Savings
     void winsav(); // <Tandy> Edmar's slot to create a Savings window
+    //Transfer
     void transWin();//
+    void transUpdate(); // <Tandy> this will receive a signal emitted from TransferWindow to call update functions
+    //Transaction History
     void tranHisWin(); // to be implemented
 };
 

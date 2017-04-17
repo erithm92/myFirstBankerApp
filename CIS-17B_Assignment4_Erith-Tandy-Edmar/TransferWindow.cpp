@@ -73,7 +73,12 @@ void TransferWindow::UpdateWindow()
     QString savamountNumQString = QString::number(myUser->getSavingsAmount());
     QString savamString = "Savings: $" + savamountNumQString;
     savAmountNumView->setText(savamString);
+
+    emit fundsTransferred(true);
 }
+
+//SIGNALS
+//void fundsTransferred(bool transferred)
 
 //PUBLIC SLOTS
 void TransferWindow::transferWin()
