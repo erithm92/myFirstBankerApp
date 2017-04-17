@@ -94,16 +94,6 @@ void Window::updateWindow() // <Tandy> function to update window after transfers
     savingsAmt->setText(savAmountString);
 }
 
-void Window::updateCheckings() // <Tandy> updates the checkings window with current amount
-{
-
-}
-
-void Window::updateSavings() // <Tandy> updates the savings window with current amount
-{
-
-}
-
 //SLOT EMITTERS:
 //Checkings
 void Window::winche() //slot emitter created by Edmar

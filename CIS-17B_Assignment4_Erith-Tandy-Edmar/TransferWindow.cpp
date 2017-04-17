@@ -1,5 +1,4 @@
 #include "TransferWindow.h"
-
 //CONSTRUCTORS
 TransferWindow::TransferWindow(QWidget *parent) : QWidget(parent)
 {
@@ -85,13 +84,48 @@ void TransferWindow::transferWin()
 void TransferWindow::checTosav()
 {
     if(myUser->getCheckings()->withdrawl(transAmt->value()))
-        myUser->getSavings()->deposit(transAmt->value());
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Confirm");
+        QString value = QString::number(transAmt->value());
+        QString a = "Do you want to transfer $" + value + " from checkings to savings?" ;
+        msgBox.setText(a);
+        msgBox.setStandardButtons(QMessageBox::Yes);
+        msgBox.addButton(QMessageBox::No);
+        msgBox.setDefaultButton(QMessageBox::No);
+        if(msgBox.exec() == QMessageBox::Yes)
+        {
+          myUser->getSavings()->deposit(transAmt->value());
+        }
+        else
+        {
+          myUser->getCheckings()->deposit(transAmt->value());
+        }
+    }
+
     UpdateWindow();
 }
 
 void TransferWindow::savTochec()
 {
     if(myUser->getSavings()->withdrawl(transAmt->value()))
-        myUser->getCheckings()->deposit(transAmt->value());
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Confirm");
+        QString value = QString::number(transAmt->value());
+        QString a = "Do you want to transfer $" + value + " from savings to checkings?" ;
+        msgBox.setText(a);
+        msgBox.setStandardButtons(QMessageBox::Yes);
+        msgBox.addButton(QMessageBox::No);
+        msgBox.setDefaultButton(QMessageBox::No);
+        if(msgBox.exec() == QMessageBox::Yes)
+        {
+          myUser->getCheckings()->deposit(transAmt->value());
+        }
+        else
+        {
+          myUser->getSavings()->deposit(transAmt->value());
+        }
+    }
     UpdateWindow();
 }

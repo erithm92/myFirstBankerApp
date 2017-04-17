@@ -12,6 +12,7 @@
 
 
 
+
 class TransferWindow : public QWidget
 {
     Q_OBJECT
