@@ -12,6 +12,8 @@ User::User(Checkings& checkings, Savings& savings)
     myCheckings = &checkings;
     mySavings = &savings;
     name = "Firstname Lastname";
+    userName = "user";
+    password = "pass";
 }
 
 //ACCESSORS (GETTERS):
