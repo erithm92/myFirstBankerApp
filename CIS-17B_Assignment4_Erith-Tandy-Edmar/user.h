@@ -24,6 +24,7 @@ private:
     Checkings *myCheckings = NULL;
     Savings *mySavings = NULL;
     QString name;
+    QString userName, password;
 
     struct transaction // <Tandy> Moved transaction struct into private above private QList so it can template that struct to hold a list of them.
     {
@@ -59,6 +60,8 @@ public:
     double getSavingsInterest();
     //User
     QString getName() const;
+    QString getUserName() const;
+    QString getPassword() const;
 
     //MUTATORS (SETTERS):
     //Checkings

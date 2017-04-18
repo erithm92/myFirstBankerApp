@@ -14,7 +14,8 @@ SOURCES += \
     SavingsWindow.cpp \
     User.cpp \
     Window.cpp \
-    TransferWindow.cpp
+    TransferWindow.cpp \
+    LoginWindow.cpp
 
 HEADERS += \
     Account.h \
@@ -24,4 +25,5 @@ HEADERS += \
     SavingsWindow.h \
     User.h \
     Window.h \
-    TransferWindow.h
+    TransferWindow.h \
+    LoginWindow.h

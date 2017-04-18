@@ -32,6 +32,14 @@ QString User::getName() const
 {
     return name;
 }
+QString User::getUserName() const
+{
+    return userName;
+}
+QString User::getPassword() const
+{
+    return password;
+}
 
 //Checkings
 int User::getCheckingsAcc()
